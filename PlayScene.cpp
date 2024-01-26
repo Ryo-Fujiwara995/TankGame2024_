@@ -2,13 +2,17 @@
 #include "Ground.h"
 #include "Tank.h"
 #include "Enemy.h"
+#include "HUD.h"
 #include "Engine/Text.h"
 #include "Engine/Camera.h"
+#include "Engine/Input.h"
+#include "Engine/SceneManager.h"
 //#include "TankHead.h"
 
 namespace {
-	enemyNum = { 30 };
+	const int ENEMY_NUM = { 30 };
 }
+
 
 PlayScene::PlayScene(GameObject* parent)
 	:GameObject(parent, "PlayScene"),pText(nullptr)
@@ -35,21 +39,28 @@ void PlayScene::Initialize()
 	pText = new Text;
 	pText->Initialize();
 
+	Instantiate<HUD>(this);//残機表示
 }
 
 void PlayScene::Update()
 {
-	//タンクと一緒にカメラを動かすよ
-	Camera::SetTarget(player->GetPosition());
-	XMFLOAT3 camPos = player->GetPosition();
-	camPos.y += 8;
-	camPos.z -= 15;
-	Camera::SetPosition(camPos);
+	////タンクと一緒にカメラを動かすよ
+	//Camera::SetTarget(player->GetPosition());
+	//XMFLOAT3 camPos = player->GetPosition();
+	//camPos.y += 8;
+	//camPos.z -= 15;
+	//Camera::SetPosition(camPos);
+	//ClearなのでC
+	if (Input::IsKeyDown(DIK_C))
+	{
+		SceneManager* pSM = (SceneManager*)FindObject("SceneManager");
+		pSM->ChangeScene(SCENE_ID_CLEAR);
+	}
 }
 
 void PlayScene::Draw()
 {
-	pText->Draw(30, 30, "Yahoo!");
+	//pText->Draw(30, 30, "Yahoo!");
 
 }
 

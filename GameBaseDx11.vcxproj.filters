@@ -33,6 +33,12 @@
     <Filter Include="SCENES\PLAY">
       <UniqueIdentifier>{7aaaf599-1e87-492b-91e8-5de72158e21f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SCENES\TITLESELECT">
+      <UniqueIdentifier>{02fe4b24-aca5-4f92-b04e-6e0b78d95bba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SCENES\Clear">
+      <UniqueIdentifier>{06d01357-24d6-4009-af13-c12d59c2a2f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -129,6 +135,18 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>SCENES\PLAY</Filter>
     </ClCompile>
+    <ClCompile Include="TitleSelect.cpp">
+      <Filter>SCENES\TITLESELECT</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>SCENES\PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleSelectImage.cpp">
+      <Filter>SCENES\TITLESELECT</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>SCENES\Clear</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -224,6 +242,18 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>SCENES\PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleSelect.h">
+      <Filter>SCENES\TITLESELECT</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>SCENES\PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleSelectImage.h">
+      <Filter>SCENES\TITLESELECT</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>SCENES\Clear</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

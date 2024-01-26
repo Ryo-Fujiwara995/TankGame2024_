@@ -26,5 +26,9 @@ public:
 
 	void SetMoveDir(XMFLOAT3 _move) { moveDir_ = _move; }
 	void SetSpeed(float _speed) { bulletSpeed_ = _speed; }
+
+	//‰½‚©‚É“–‚½‚Á‚½
+	//ˆø”FEnemy “–‚½‚Á‚½‘Šè
+	void OnCollision(GameObject* pTarget) override;
 };
 

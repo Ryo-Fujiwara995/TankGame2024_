@@ -1,23 +1,26 @@
 #include "Bullet.h"
+#include "Enemy.h"
 #include "Engine/Model.h"
+#include "Engine/SphereCollider.h"
+#include "Enemy.h" 
+
 
 Bullet::Bullet(GameObject* parent)
-	:GameObject(parent, "Bullet"), hModel_(-1)
-{
+	:GameObject(parent, "Bullet"), hModel_(-1){
 }
 
-Bullet::~Bullet()
-{
+Bullet::~Bullet(){
 }
 
-void Bullet::Initialize()
-{
+void Bullet::Initialize(){
 	hModel_ = Model::Load("Bullet.fbx");
 	assert(hModel_ >= 0);
+	SphereCollider* collider = new SphereCollider(XMFLOAT3(0, 0, 0), 0.3);
+	AddCollider(collider);
+
 }
 
-void Bullet::Update()
-{
+void Bullet::Update(){
 	//transform_.positionÇmoveDir_Ç∆bulletSpeedÇ≈çXêV
 	//transform_.position_.z += 0.05;
 	transform_.position_.x = transform_.position_.x + moveDir_.x * bulletSpeed_;
@@ -26,23 +29,22 @@ void Bullet::Update()
 	moveDir_ = { moveDir_.x, moveDir_.y-0.01f, moveDir_.z };
 	if (transform_.position_.y < -10)
 		KillMe();
-	
-	//transform_.position_->XMVECTOR pos;
-	//moveDir->XMVECTOR dir;
-	//pos = pos + bulletSpeed_ * dir;
-
-
-	//yç¿ïWÇóéÇ∆Ç∑
-	//	if (yÇ™ëäìñâ∫Ç…óéÇøÇΩÇÁ)
-	//		KillMe();
 }
 
-void Bullet::Draw()
-{
+void Bullet::Draw(){
 	Model::SetTransform(hModel_, transform_);
 	Model::Draw(hModel_);
 }
 
-void Bullet::Release()
-{
+void Bullet::Release(){
+}
+
+void Bullet::OnCollision(GameObject* pTarget){
+
+	//ìñÇΩÇ¡ÇΩÇ∆Ç´ÇÃèàóù
+	//íeÇ™ìGÇ…ìñÇΩÇ¡ÇΩÇ∆Ç´ íeÇ™è¡Ç¶ÇÈèàóù
+	if (pTarget->GetObjectName() == "Enemy"){
+		KillMe();
+	}
+
 }

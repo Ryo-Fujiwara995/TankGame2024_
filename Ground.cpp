@@ -8,7 +8,6 @@ Ground::Ground(GameObject* parent)
 
 Ground::~Ground()
 {
-	//Ç»Å[ÇÒÇ‡ÇµÇ»Ç¢ÅB
 }
 
 void Ground::Initialize()

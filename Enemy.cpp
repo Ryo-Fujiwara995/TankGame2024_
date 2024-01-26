@@ -1,16 +1,20 @@
 #include "Enemy.h"
 #include "Engine/Model.h"
 #include "Ground.h"
+#include "Engine/SphereCollider.h"
 
 Enemy::Enemy(GameObject* parent)
-	:GameObject(parent, "Enemy"),hModel_(-1)
-{
+	:GameObject(parent, "Enemy"),hModel_(-1){
+
 }
 
-void Enemy::Initialize()
-{
+void Enemy::Initialize(){
 	hModel_ = Model::Load("Mushroom 1.fbx");
 	assert(hModel_ >= 0);
+
+	SphereCollider* collider = new SphereCollider(XMFLOAT3(0, 0, 0), 1.0);
+	AddCollider(collider);
+
 	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒZƒbƒg
 	Model::SetAnimFrame(hModel_, 0, 60, 1);
 	float x = (float)rand() / RAND_MAX;//0-1‚Ì—”
@@ -49,3 +53,18 @@ void Enemy::Draw()
 void Enemy::Release()
 {
 }
+
+void Enemy::OnCollision(GameObject* pTarget){
+	//“–‚½‚Á‚½‚Æ‚«‚Ìˆ—
+	//“G‚ª’e‚É“–‚½‚Á‚½‚Æ‚« “G‚ªÁ‚¦‚éˆ—
+	if (pTarget->GetObjectName() == "Bullet") {
+		KillMe();
+	}
+	//Tank ‚ª“G‚É“–‚½‚Á‚½‚Æ‚« Enemy ‚ªÁ‚¦‚éˆ—
+	if (pTarget->GetObjectName() == "Tank") {
+		KillMe();
+	}
+}
+
+
+

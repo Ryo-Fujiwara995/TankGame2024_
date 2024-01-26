@@ -126,6 +126,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="ClearScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Engine\Audio.cpp" />
     <ClCompile Include="Engine\BillBoard.cpp" />
@@ -151,15 +152,19 @@
     <ClCompile Include="Engine\Texture.cpp" />
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="TankHead.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TitleImage.cpp" />
+    <ClCompile Include="TitleSelect.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="TitleSelectImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ClearScene.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Engine\Audio.h" />
     <ClInclude Include="Engine\BillBoard.h" />
@@ -185,12 +190,15 @@
     <ClInclude Include="Engine\Texture.h" />
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="TankHead.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TitleImage.h" />
+    <ClInclude Include="TitleSelect.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="TitleSelectImage.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">
